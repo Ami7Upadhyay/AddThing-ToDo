@@ -1,23 +1,26 @@
 import 'package:add_thing_todo/res/colors.dart';
+import 'package:add_thing_todo/view/login/login.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class GetStartedPage extends StatelessWidget {
+  static const path = '/get_started';
   const GetStartedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: _content(),
+      body: _content(context),
     );
   }
 
-  Widget _content() {
+  Widget _content(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(24, 0, 24, 50),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [_header(), _loginAndCreateAccountBtn()]),
+          children: [_header(), _loginAndCreateAccountBtn(context)]),
     );
   }
 
@@ -50,17 +53,25 @@ class GetStartedPage extends StatelessWidget {
     );
   }
 
-  Widget _loginAndCreateAccountBtn() {
+  Widget _loginAndCreateAccountBtn(BuildContext context) {
     return Column(
-      children: [_loginBtn(), const SizedBox(height: 20), _createAccountBtn()],
+      children: [
+        _loginBtn(context),
+        const SizedBox(height: 20),
+        _createAccountBtn()
+      ],
     );
   }
 
-  Widget _loginBtn() {
+  Widget _loginBtn(BuildContext context) {
     return SizedBox(
         width: double.infinity,
         height: 40,
-        child: ElevatedButton(onPressed: () {}, child: const Text("LOGIN")));
+        child: ElevatedButton(
+            onPressed: () {
+              context.push(LoginPage.path);
+            },
+            child: const Text("LOGIN")));
   }
 
   Widget _createAccountBtn() {

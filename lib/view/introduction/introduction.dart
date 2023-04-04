@@ -1,10 +1,13 @@
 import 'package:add_thing_todo/view/introduction/get_started.dart';
+import 'package:add_thing_todo/view/login/login.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../introduction/widgets/intro.dart';
 import '../introduction/widgets/page_indicator.dart';
-import 'package:flutter/material.dart';
 
 class Introduction extends StatefulWidget {
+  static const path = '/introduction';
   const Introduction({Key? key}) : super(key: key);
 
   @override
@@ -66,11 +69,7 @@ class _IntroductionState extends State<Introduction>
           style: TextStyle(color: Colors.white.withOpacity(0.44), fontSize: 16),
         ),
         onPressed: () {
-          Navigator.pop(context);
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => const GetStartedPage()));
+          context.pushReplacement(LoginPage.path);
         },
       ),
     );
@@ -131,10 +130,7 @@ class _IntroductionState extends State<Introduction>
     return ElevatedButton(
       onPressed: () {
         if ((pageViews.length - 1) == currentIndex) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => const GetStartedPage()));
+          context.push(GetStartedPage.path);
         }
         _pageController?.nextPage(
             duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
