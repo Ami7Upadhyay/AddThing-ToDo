@@ -11,6 +11,26 @@ class AppTheme {
         elevation: 0,
       ),
       fontFamily: GoogleFonts.lato().fontFamily,
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: color1D1D1D,
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red, width: 1),
+            borderRadius: BorderRadius.circular(4)),
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red, width: 1),
+            borderRadius: BorderRadius.circular(4)),
+        enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 1),
+            borderRadius: BorderRadius.circular(4)),
+        disabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 1),
+            borderRadius: BorderRadius.circular(4)),
+        focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white, width: 1),
+            borderRadius: BorderRadius.circular(4)),
+        hintStyle: const TextStyle(
+            color: color535353, fontSize: 16, fontWeight: FontWeight.w400),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(lavender),
