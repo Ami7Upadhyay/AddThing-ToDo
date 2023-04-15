@@ -36,6 +36,13 @@ class _IntroductionState extends State<Introduction>
   ];
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    animationController?.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     _pageController = PageController()
       ..addListener(() {

@@ -1,6 +1,8 @@
 import 'package:add_thing_todo/res/colors.dart';
 import 'package:add_thing_todo/view/login/register.dart';
 import 'package:add_thing_todo/view/login/widgets/login_signup_form.dart';
+import 'package:add_thing_todo/view/task/add_task.dart';
+import 'package:add_thing_todo/view/task/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -58,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
     return LoginSingUpForm(
       isLoading: isLoading,
       onFormSubmit: (bool isValidate) {
+        context.push(HomePage.path);
         setState(() {
           isLoading = true;
         });
